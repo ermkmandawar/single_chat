@@ -20,7 +20,7 @@ class SingleChat extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            centerTitle: true,
+            // centerTitle: true,
             title: Text('Single Chat'),
             automaticallyImplyLeading: false,
             leading: GestureDetector(
@@ -37,10 +37,7 @@ class SingleChat extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Icon(Icons.search),
-                ),
+                child: Icon(Icons.search),
               ),
               Padding(
                 padding: EdgeInsets.only(right: 20.0),
@@ -87,3 +84,5 @@ class SingleChat extends StatelessWidget {
     );
   }
 }
+
+class CustomSearchDelegate {}
