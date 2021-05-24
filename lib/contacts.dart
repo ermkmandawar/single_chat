@@ -1,7 +1,5 @@
 import 'dart:async';
-import 'dart:ffi';
 import 'dart:typed_data';
-import 'dart:ui';
 
 import 'package:flutter_contact/contacts.dart';
 
@@ -48,32 +46,31 @@ class _ContactScreenState extends State<ContactScreen> {
                   itemCount: listContacts.length,
                   itemBuilder: (context, index) {
                     Contact contact = listContacts.get(index);
-                    return Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                    // return Card(
+                    // shape: RoundedRectangleBorder(
+                    //   borderRadius: BorderRadius.circular(10),
+                    // ),
+                    // shadowColor: Colors.black,
+                    // elevation: 7,
+                    // color: Colors.blue[100],
+                    // margin: EdgeInsets.fromLTRB(3, 0, 3, 10),
+                    return ListTile(
+                      trailing: Icon(
+                        Icons.person,
                       ),
-                      shadowColor: Colors.black,
-                      elevation: 7,
-                      color: Colors.blue[100],
-                      margin: EdgeInsets.fromLTRB(3, 0, 3, 10),
-                      child: ListTile(
-                        trailing: Icon(
-                          Icons.person,
-                        ),
-                        leading: (contact.avatar != null &&
-                                contact.avatar.isNotEmpty)
-                            ? CircleAvatar(
-                                backgroundImage: MemoryImage(contact.avatar),
-                              )
-                            : CircleAvatar(
-                                child: Text(contact.initials()),
-                                backgroundColor: Theme.of(context).accentColor,
-                              ),
-                        title: Text("${contact.displayName}"),
-                        subtitle: Text((contact.phones.length > 0)
-                            ? "${contact.phones.get(0)}"
-                            : "${contact.givenName}"),
-                      ),
+                      leading: (contact.avatar != null &&
+                              contact.avatar.isNotEmpty)
+                          ? CircleAvatar(
+                              backgroundImage: MemoryImage(contact.avatar),
+                            )
+                          : CircleAvatar(
+                              child: Text(contact.initials()),
+                              backgroundColor: Theme.of(context).accentColor,
+                            ),
+                      title: Text("${contact.displayName}"),
+                      subtitle: Text((contact.phones.length > 0)
+                          ? "${contact.phones.get(0)}"
+                          : "${contact.givenName}"),
                     );
                   })
               : Center(
